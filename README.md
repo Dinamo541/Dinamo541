@@ -6,17 +6,22 @@
   Hi, I'm Dominique Mariano
 </h1>
 
-## Perfil visual de GitHub
+💻 Estudiante de programación apasionado por el desarrollo de software.
 
-Página estática y ligera que construye una vista atractiva del perfil `Dinamo541` consumiendo la API pública de GitHub.
+## 🚀 Tecnologías
+- Java
+- C++
+- Git & GitHub
+- Interfaces gráficas (Swing)
 
-### Incluye
-- Cabecera con avatar, bio y métricas principales.
-- Selección automática de repositorios destacados.
-- Diseño responsive con estilo moderno y minimalista.
+## 🌱 Actualmente aprendiendo
+- Programación orientada a objetos avanzada
+- Diseño de interfaces
+- Buenas prácticas de software
 
-### Cómo abrirla
-1. Clonar el repositorio.
-2. Abrir `index.html` en el navegador.
+## 🌐 Mi página web
+👉 https://dinamo541.github.io/Dinamo541/
 
-> No requiere build ni dependencias.
+## 📌 Proyectos destacados
+- Aplicaciones Java con GUI
+- Ejercicios de programación
