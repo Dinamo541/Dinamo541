@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil de Dinamo541</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow"></div>
+    <main class="layout">
+      <section class="hero card">
+        <div class="avatar-wrap">
+          <img id="avatar" alt="Avatar de perfil" />
+        </div>
+        <div class="hero-content">
+          <p class="badge">GitHub Profile</p>
+          <h1 id="name">Cargando perfil...</h1>
+          <p id="bio" class="bio"></p>
+          <div class="stats" id="stats"></div>
+          <a id="profile-link" class="btn" target="_blank" rel="noopener noreferrer">
+            Ver perfil en GitHub
+          </a>
+        </div>
+      </section>
+
+      <section class="repos card">
+        <div class="section-head">
+          <h2>Repositorios destacados</h2>
+          <p>Una selección limpia de proyectos recientes y relevantes.</p>
+        </div>
+        <div id="repos-grid" class="repos-grid"></div>
+      </section>
+    </main>
+
+    <template id="repo-card-template">
+      <article class="repo-card">
+        <header>
+          <h3 class="repo-name"></h3>
+          <span class="repo-lang"></span>
+        </header>
+        <p class="repo-desc"></p>
+        <footer>
+          <div class="repo-meta">
+            <span class="repo-stars"></span>
+            <span class="repo-updated"></span>
+          </div>
+          <a class="repo-link" target="_blank" rel="noopener noreferrer">Abrir</a>
+        </footer>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>

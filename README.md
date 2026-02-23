@@ -1,16 +1,14 @@
-## Hi there 👋
+## Perfil visual de GitHub
 
-<!--
-**Dinamo541/Dinamo541** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Página estática y ligera que construye una vista atractiva del perfil `Dinamo541` consumiendo la API pública de GitHub.
 
-Here are some ideas to get you started:
+### Incluye
+- Cabecera con avatar, bio y métricas principales.
+- Selección automática de repositorios destacados.
+- Diseño responsive con estilo moderno y minimalista.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### Cómo abrirla
+1. Clonar el repositorio.
+2. Abrir `index.html` en el navegador.
+
+> No requiere build ni dependencias.
