@@ -23,6 +23,7 @@
           <p class="badge">GitHub Profile</p>
           <h1 id="name">Cargando perfil...</h1>
           <p id="bio" class="bio"></p>
+          <div class="quick-links" id="quick-links"></div>
           <div class="stats" id="stats"></div>
           <a id="profile-link" class="btn" target="_blank" rel="noopener noreferrer">
             Ver perfil en GitHub
@@ -30,12 +31,43 @@
         </div>
       </section>
 
-      <section class="repos card">
+      <section class="overview card">
         <div class="section-head">
-          <h2>Repositorios destacados</h2>
-          <p>Una selección limpia de proyectos recientes y relevantes.</p>
+          <h2>Resumen de actividad</h2>
+          <p>Datos públicos de GitHub presentados en un panel más completo e interactivo.</p>
+        </div>
+        <div id="overview-grid" class="overview-grid"></div>
+      </section>
+
+      <section class="repos card">
+        <div class="section-head section-head-row">
+          <div>
+            <h2>Repositorios destacados</h2>
+            <p>Estilo pin al estilo GitHub con filtros para explorar mejor tus proyectos.</p>
+          </div>
+          <div class="repo-controls">
+            <input id="repo-search" type="search" placeholder="Buscar repositorio..." aria-label="Buscar repositorio" />
+            <select id="repo-language" aria-label="Filtrar por lenguaje">
+              <option value="all">Todos los lenguajes</option>
+            </select>
+            <select id="repo-sort" aria-label="Ordenar repositorios">
+              <option value="score">Más relevantes</option>
+              <option value="updated">Recientes</option>
+              <option value="stars">Más estrellas</option>
+              <option value="forks">Más forks</option>
+              <option value="name">Nombre (A-Z)</option>
+            </select>
+          </div>
         </div>
         <div id="repos-grid" class="repos-grid"></div>
+      </section>
+
+      <section class="activity card">
+        <div class="section-head">
+          <h2>Actividad pública reciente</h2>
+          <p>Últimos eventos visibles en GitHub para mostrar movimiento real del perfil.</p>
+        </div>
+        <ul id="activity-list" class="activity-list"></ul>
       </section>
     </main>
 
@@ -43,12 +75,18 @@
       <article class="repo-card">
         <header>
           <h3 class="repo-name"></h3>
-          <span class="repo-lang"></span>
+          <span class="repo-visibility"></span>
         </header>
         <p class="repo-desc"></p>
+        <div class="repo-tags">
+          <span class="repo-lang"></span>
+          <span class="repo-size"></span>
+          <span class="repo-license"></span>
+        </div>
         <footer>
           <div class="repo-meta">
             <span class="repo-stars"></span>
+            <span class="repo-forks"></span>
             <span class="repo-updated"></span>
           </div>
           <a class="repo-link" target="_blank" rel="noopener noreferrer">Abrir</a>
