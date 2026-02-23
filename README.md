@@ -40,3 +40,9 @@
 ## 📌 Proyectos destacados
 - Aplicaciones Java con GUI
 - Ejercicios de programación
+
+Este repositorio corresponde a mi perfil de GitHub y contiene el código fuente de mi página web personal. 
+Aquí presento información sobre mí, mi aprendizaje en programación y mis proyectos actuales, utilizando tecnologías web como HTML, CSS y JavaScript.
+
+🔗 Repositorio: https://github.com/Dinamo541/Dinamo541  
+🌐 Página web: https://dinamo541.github.io/Dinamo541/
