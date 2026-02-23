@@ -1,3 +1,7 @@
+<div align="center">
+   <img width=100% src=https://capsule-render.vercel.app/api?type=waving&height=100&color=gradient&reversal=true />
+</div>
+
 ## Perfil visual de GitHub
 
 Página estática y ligera que construye una vista atractiva del perfil `Dinamo541` consumiendo la API pública de GitHub.
