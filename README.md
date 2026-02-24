@@ -32,14 +32,6 @@
   </a>
 </p>
 
-## 🌱 Actualmente aprendiendo
-- Programación orientada a objetos avanzada
-- Diseño de interfaces
-- Buenas prácticas de software
-
-## 🌐 Mi página web
-👉 https://dinamo541.github.io/Dinamo541/
-
 ### ⚙️ &nbsp;GitHub Analytics
 
 <p align="center">
