@@ -6,13 +6,31 @@
   Hi, I'm Dominique Mariano
 </h1>
 
-💻 Estudiante de programación apasionado por el desarrollo de software.
+<h4 align="center">
+  Programming student passionate about software development.
+</h3>
 
-## 🚀 Tecnologías
-- Java
-- C++
-- Git & GitHub
-- Interfaces gráficas (Swing)
+##  My Technologies
+### <picture> <img src = "https://github.com/7oSkaaa/7oSkaaa/blob/main/Images/Programming_Languages.gif?raw=true" width = 50px>  </picture> Programming languages
+
+<p align="center"> 
+  &emsp; 
+  <a href="https://www.cprogramming.com/" target="_blank"> 
+    <img alt="C" src="https://img.shields.io/badge/C%20-%232370ED.svg?style=plastic&logo=c&logoColor=white">
+  </a> 
+  &emsp;
+  <a href="https://www.w3schools.com/cpp/" target="_blank"> 
+    <img alt="C++" src="https://img.shields.io/badge/C++%20-%2300599C.svg?style=plastic&logo=c%2B%2B&logoColor=white">
+  </a> 
+  &emsp;
+  <a href="https://www.java.com" target="_blank"> 
+    <img alt="Java" src="https://img.shields.io/badge/Java-%23007396.svg?style=plastic&logo=java&logoColor=white">
+  </a>
+  &emsp;
+   <a href="https://www.python.org" target="_blank">
+    <img alt="Python" src="https://img.shields.io/badge/Python%20-%2314354C.svg?style=plastic&logo=python&logoColor=white">
+  </a>
+</p>
 
 ## 🌱 Actualmente aprendiendo
 - Programación orientada a objetos avanzada
@@ -34,7 +52,7 @@
 </p>
 
 <p align="center">
-  <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=Dinamo541&theme=dark&hide_border=true"/>
+  <img height="160em" src="https://github-readme-streak-stats.herokuapp.com/?user=Dinamo541&theme=dark&hide_border=true"/>
 </p>
 
 ## 📌 Proyectos destacados
