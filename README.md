@@ -36,7 +36,7 @@ public final class Dominique extends Developer {
             .role("Programming Student")
             .languages(List.of("C", "C++", "Java", "Python"))
             .currentlyBuilding("CoreFx — the foundation layer for JavaFX apps")
-            .philosophy("The first step in solving a problem is understanding it.")
+            .philosophy("Every solution begins with understanding the problem.")
             .learning(List.of("Software design", "Testing", "Open source"))
             .build();
     }
@@ -189,7 +189,7 @@ render my profile and featured repositories live.
 <!-- ============================================================ Quote + footer -->
 <div align="center">
 
-> *"The first step in solving a problem is understanding it."*
+> *"Every solution begins with understanding the problem."*
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=120&color=gradient&reversal=true&section=footer" alt="footer banner" />
 
