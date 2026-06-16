@@ -1,0 +1,54 @@
+# Build output
+target/
+build/
+out/
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse
+.settings/
+.classpath
+.project
+.factorypath
+bin/
+
+# VS Code
+*.code-workspace
+
+# NetBeans
+nb-configuration.xml
+nbproject/
+build/
+dist/
+nbbuild/
+nbdist/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Misc
+*.swp
+*.swo
+*~
+
+# Other
+.env
+.claude
