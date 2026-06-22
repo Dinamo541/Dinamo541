@@ -212,6 +212,7 @@ code {
   margin: 0 auto;
   padding: 40px 24px 80px;
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 24px;
 }
 
@@ -228,6 +229,7 @@ code {
 
 .card {
   position: relative;
+  min-width: 0;
   background: var(--panel);
   border: 1px solid var(--panel-border);
   border-radius: var(--radius);
@@ -568,9 +570,13 @@ h1,
 .project-showcase {
   margin-top: 22px;
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
   gap: 22px;
   align-items: start;
+}
+.project-main,
+.project-side {
+  min-width: 0;
 }
 .project-title {
   display: flex;
@@ -837,7 +843,10 @@ h1,
 .activity-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  min-width: 0;
+  overflow-wrap: anywhere;
   background: var(--panel-2);
   border: 1px solid var(--panel-border);
   border-left: 3px solid var(--accent);
@@ -856,6 +865,7 @@ h1,
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
+  word-break: break-word;
 }
 .activity-item a:hover {
   text-decoration: underline;
@@ -976,18 +986,17 @@ h1,
 }
 
 /* ----------------------------------------------------------- Responsive */
+@media (max-width: 960px) {
+  .nav-links {
+    display: none;
+  }
+}
 @media (max-width: 900px) {
   .project-showcase {
     grid-template-columns: 1fr;
   }
 }
 @media (max-width: 760px) {
-  .nav-links {
-    display: none;
-  }
-  .nav-cta {
-    margin-left: auto;
-  }
   .layout {
     padding: 28px 16px 64px;
   }
