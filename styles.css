@@ -204,6 +204,45 @@ code {
   box-shadow: 0 10px 26px rgba(101, 176, 255, 0.42);
 }
 
+/* ----------------------------------------------------------- Hamburger */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 42px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: border-color 0.15s ease;
+}
+.nav-toggle:hover {
+  border-color: var(--panel-border-strong);
+}
+.nav-toggle-bar {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.topnav.open .nav-toggle-bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.topnav.open .nav-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+.topnav.open .nav-toggle-bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+body.menu-open {
+  overflow: hidden;
+}
+
 /* ----------------------------------------------------------- Layout */
 .layout {
   position: relative;
@@ -987,8 +1026,50 @@ h1,
 
 /* ----------------------------------------------------------- Responsive */
 @media (max-width: 960px) {
-  .nav-links {
+  .nav-toggle {
+    display: flex;
+  }
+  .nav-cta {
     display: none;
+  }
+  /* Dropdown panel below the navbar. It is positioned against .topnav (its
+     backdrop-filter makes it the containing block), so top:100% sits exactly
+     under the bar — full-screen fixed would collapse against that same block. */
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 16px 18px calc(18px + env(safe-area-inset-bottom));
+    background: rgba(9, 11, 22, 0.96);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--panel-border);
+    box-shadow: var(--shadow);
+    max-height: calc(100vh - var(--nav-h));
+    overflow-y: auto;
+    z-index: 45;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  }
+  .topnav.open .nav-links {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+  }
+  .nav-links a {
+    font-size: 1.12rem;
+    font-weight: 600;
+    padding: 15px 18px;
+    border-radius: 12px;
+    text-align: center;
   }
 }
 @media (max-width: 900px) {
@@ -1023,6 +1104,117 @@ h1,
   }
   .section-head-row {
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .topnav-inner {
+    padding: 0 16px;
+  }
+  .layout {
+    padding: 20px 12px 48px;
+    gap: 18px;
+  }
+  .hero {
+    padding: 24px 18px;
+    gap: 22px;
+  }
+  h1,
+  #name {
+    font-size: clamp(1.6rem, 7vw, 2.1rem);
+  }
+  .tagline {
+    font-size: 1rem;
+  }
+  .badge {
+    font-size: 0.72rem;
+    white-space: normal;
+  }
+  .overview,
+  .repos,
+  .activity {
+    padding: 22px 16px;
+  }
+  .feature,
+  .project-side {
+    padding: 16px;
+  }
+  .section-head h2 {
+    font-size: 1.28rem;
+  }
+  /* Single column on phones avoids the minmax() min from forcing overflow. */
+  .feature-grid,
+  .tech-groups,
+  .contact-grid,
+  .repos-grid {
+    grid-template-columns: 1fr;
+  }
+  .overview-grid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .overview-value {
+    font-size: 1.2rem;
+  }
+  .repo-controls {
+    width: 100%;
+  }
+  .repo-controls input,
+  .repo-controls select {
+    flex: 1 1 100%;
+  }
+  .hero-cta .btn {
+    flex: 1 1 100%;
+  }
+  .footer-links {
+    gap: 10px 16px;
+  }
+}
+
+/* Touch devices: drop sticky hover effects, enlarge tap targets, kill 300ms delay. */
+@media (hover: none) and (pointer: coarse) {
+  .card:hover,
+  .feature:hover,
+  .chip:hover,
+  .overview-item:hover,
+  .repo-card:hover,
+  .contact-card:hover,
+  .inline-link:hover,
+  .btn:hover,
+  .nav-cta:hover,
+  .activity-item:hover {
+    transform: none;
+  }
+  a,
+  button,
+  input,
+  select,
+  .btn,
+  .inline-link,
+  .chip,
+  .stat-pill {
+    touch-action: manipulation;
+  }
+  .inline-link,
+  .stat-pill {
+    padding: 10px 14px;
+  }
+  .lang-switch {
+    height: 44px;
+  }
+  .lang-switch button {
+    min-width: 48px;
+  }
+  .tab-btns button {
+    padding: 12px 14px;
+  }
+  .repo-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer-links a {
+    padding: 8px 4px;
   }
 }
 

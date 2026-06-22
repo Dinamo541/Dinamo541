@@ -466,6 +466,37 @@ async function loadPage() {
   renderActivity(currentEvents);
 }
 
+/* ------------------------------------------------------------- Mobile menu */
+function setupMobileMenu() {
+  const toggle = document.getElementById("nav-toggle");
+  const topnav = document.querySelector(".topnav");
+  const navLinks = document.getElementById("nav-links");
+  if (!toggle || !topnav || !navLinks) return;
+
+  function setOpen(open) {
+    topnav.classList.toggle("open", open);
+    document.body.classList.toggle("menu-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute(
+      "aria-label",
+      open
+        ? LANG === "en" ? "Close menu" : "Cerrar menú"
+        : LANG === "en" ? "Open menu" : "Abrir menú"
+    );
+  }
+
+  toggle.addEventListener("click", () => setOpen(!topnav.classList.contains("open")));
+  navLinks.addEventListener("click", (e) => {
+    if (e.target.closest("a")) setOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setOpen(false);
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 960) setOpen(false);
+  });
+}
+
 /* ------------------------------------------------------------- Wiring */
 repoSearch?.addEventListener("input", renderRepos);
 repoLanguage?.addEventListener("change", renderRepos);
@@ -476,4 +507,5 @@ document.querySelectorAll(".lang-switch [data-lang-set]").forEach((b) =>
 
 wireTabs();
 setupScrollSpy();
+setupMobileMenu();
 loadPage();
