@@ -146,7 +146,7 @@ to stash the logged-in user, helpers to wire up tables, theming and a validation
 <dependency>
   <groupId>io.github.dinamo541</groupId>
   <artifactId>corefx</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
 </dependency>
 ```
 
