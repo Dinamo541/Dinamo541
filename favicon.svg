@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="dc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#74a6ff"/>
+      <stop offset="1" stop-color="#9a8cff"/>
+    </linearGradient>
+  </defs>
+  <text x="32" y="47" text-anchor="middle" font-family="'Clash Display','Segoe UI',Arial,sans-serif" font-weight="800" font-size="42" letter-spacing="-2.5" fill="url(#dc)">DC</text>
+</svg>

@@ -3,12 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dominique Mariano · Dinamo541 — Estudiante de programación</title>
+    <title>Dominique Castro · Dinamo541</title>
+
     <meta
       name="description"
-      content="Portafolio de Dominique Mariano (Dinamo541): estudiante de programación enfocado en C, C++, Java y Python. Autor de CoreFx, librería JavaFX publicada en Maven Central."
+      content="Dominique Castro (Dinamo541) — estudiante de programación enfocado en C, C++, Java y Python. Autor de CoreFx, la capa de fundación para aplicaciones JavaFX publicada en Maven Central."
     />
-    <link rel="icon" href="https://github.githubassets.com/favicons/favicon-dark.png" />
+    <meta name="author" content="Dominique Castro" />
+    <meta name="theme-color" content="#0a0b0f" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Dominique Castro · Dinamo541" />
+    <meta property="og:description" content="Estudiante de programación y autor de CoreFx. C · C++ · Java · Python." />
+    <meta property="og:image" content="https://github.com/Dinamo541.png" />
+    <meta property="og:url" content="https://dinamo541.github.io/Dinamo541/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Dominique Castro · Dinamo541" />
+    <meta name="twitter:description" content="Estudiante de programación y autor de CoreFx." />
+    <meta name="twitter:image" content="https://github.com/Dinamo541.png" />
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
     <script>
       (function () {
         try {
@@ -21,425 +36,296 @@
         }
       })();
     </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Great+Vibes&display=swap"
       rel="stylesheet"
     />
+    <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
+    <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
-    <div class="bg-glow"></div>
 
-    <!-- ============================================================ Navbar -->
-    <header class="topnav">
-      <div class="topnav-inner">
-        <a class="brand" href="#top">
-          <span class="brand-dot"></span>Dinamo<span class="brand-accent">541</span>
+  <body>
+    <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-aurora" aria-hidden="true"></div>
+    <div class="bg-grain" aria-hidden="true"></div>
+    <div class="bg-vignette" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- =========================================================== Navbar -->
+    <header class="nav" id="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Dominique Castro — inicio">
+          <span class="brand-mono">DC</span>
+          <span class="brand-tag">Dominique Castro</span>
         </a>
-        <nav class="nav-links" id="nav-links">
-          <a href="#about"><span lang="es">Sobre mí</span><span lang="en">About</span></a>
-          <a href="#tech"><span lang="es">Tecnologías</span><span lang="en">Tech</span></a>
-          <a href="#project"><span lang="es">Proyecto</span><span lang="en">Project</span></a>
-          <a href="#repos"><span lang="es">Repositorios</span><span lang="en">Repositories</span></a>
-          <a href="#activity"><span lang="es">Actividad</span><span lang="en">Activity</span></a>
-          <a href="#contact"><span lang="es">Contacto</span><span lang="en">Contact</span></a>
+
+        <nav class="nav-links" id="nav-links" aria-label="Secciones">
+          <span class="nav-indicator" id="nav-indicator" aria-hidden="true"></span>
+          <a href="#numbers" data-i18n="nav.numbers">Resumen</a>
+          <a href="#about" data-i18n="nav.about">Sobre mí</a>
+          <a href="#tech" data-i18n="nav.tech">Tecnologías</a>
+          <a href="#project" data-i18n="nav.project">Proyecto</a>
+          <a href="#repos" data-i18n="nav.repos">Repositorios</a>
+          <a href="#activity" data-i18n="nav.activity">Actividad</a>
+          <a href="#contact" data-i18n="nav.contact">Contacto</a>
         </nav>
-        <div class="nav-actions">
-          <div class="lang-switch" role="group" aria-label="Idioma / Language">
-            <button type="button" data-lang-set="es" title="Español">ES</button>
-            <button type="button" data-lang-set="en" title="English">EN</button>
+
+        <div class="nav-right">
+          <div class="lang" id="lang" role="group" aria-label="Idioma / Language">
+            <span class="lang-thumb" aria-hidden="true"></span>
+            <button type="button" data-lang-set="es">ES</button>
+            <button type="button" data-lang-set="en">EN</button>
           </div>
-          <a class="nav-cta" href="https://github.com/Dinamo541" target="_blank" rel="noopener noreferrer">
-            GitHub ↗
-          </a>
-          <button
-            class="nav-toggle"
-            id="nav-toggle"
-            type="button"
-            aria-label="Abrir menú"
-            aria-expanded="false"
-            aria-controls="nav-links"
-          >
-            <span class="nav-toggle-bar"></span>
-            <span class="nav-toggle-bar"></span>
-            <span class="nav-toggle-bar"></span>
+          <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+            <span></span><span></span><span></span>
           </button>
         </div>
       </div>
     </header>
 
-    <main id="top" class="layout">
-      <!-- ========================================================== Hero -->
-      <section class="hero card">
-        <div class="avatar-wrap">
-          <img id="avatar" alt="Avatar de perfil" />
-        </div>
-        <div class="hero-content">
-          <p class="badge">
-            <span lang="es">🎓 Estudiante de programación · @Dinamo541</span>
-            <span lang="en">🎓 Programming student · @Dinamo541</span>
+    <main id="top">
+      <!-- ============================================================ Hero -->
+      <section class="hero reveal">
+        <div class="hero-text">
+          <p class="eyebrow"><span data-i18n="hero.eyebrow">Estudiante de programación · @Dinamo541</span></p>
+          <h1 class="hero-name" id="name">Dominique Castro</h1>
+          <p class="hero-tagline" data-i18n-html="hero.tagline">
+            Construyo aplicaciones y herramientas con <em>C</em>, <em>C++</em>, <em>Java</em> y <em>Python</em>.
           </p>
-          <h1 id="name">Cargando perfil…</h1>
-          <p class="tagline">
-            <span lang="es">Construyo aplicaciones y herramientas con
-              <span class="hl">C</span>, <span class="hl">C++</span>,
-              <span class="hl">Java</span> y <span class="hl">Python</span>.</span>
-            <span lang="en">I build applications and tools with
-              <span class="hl">C</span>, <span class="hl">C++</span>,
-              <span class="hl">Java</span> and <span class="hl">Python</span>.</span>
-          </p>
-          <p id="bio" class="bio"></p>
+          <p class="hero-bio" id="bio"></p>
+          <div class="hero-meta" id="hero-meta"></div>
 
-          <div class="quick-links" id="quick-links"></div>
-          <div class="stats" id="stats"></div>
-
-          <div class="hero-cta">
-            <a id="profile-link" class="btn" target="_blank" rel="noopener noreferrer">
-              <span lang="es">Ver perfil en GitHub</span><span lang="en">View GitHub profile</span>
-            </a>
-            <a class="btn btn-ghost" href="#project">
-              <span lang="es">Conoce CoreFx →</span><span lang="en">Explore CoreFx →</span>
+          <div class="hero-actions">
+            <button class="btn btn-soft" data-icon-reveal id="profile-toggle" type="button" aria-expanded="false" aria-controls="profile-drawer">
+              <span class="btn-ico" data-ico="eye"></span>
+              <span class="btn-label" data-i18n="hero.showProfile">Mostrar foto de perfil</span>
+            </button>
+            <a class="btn btn-ghost" data-icon-reveal href="#project">
+              <span class="btn-ico" data-ico="arrow-right"></span>
+              <span class="btn-label" data-i18n="hero.exploreCore">Conoce CoreFx</span>
             </a>
           </div>
+
+          <div class="hero-stats" id="hero-stats"></div>
+        </div>
+
+        <div class="hero-aside">
+          <div class="profile-drawer" id="profile-drawer" data-open="false">
+            <div class="profile-drawer-inner">
+              <div class="avatar-ring"><img id="avatar" alt="Foto de perfil de Dominique Castro" /></div>
+              <p class="avatar-handle">@Dinamo541</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- =================================================== En números -->
-      <section class="overview card numbers-card">
+      <!-- ===================================================== En números -->
+      <section id="numbers" class="section reveal">
         <div class="section-head">
-          <h2><span lang="es">GitHub en números</span><span lang="en">GitHub in numbers</span></h2>
-          <p>
-            <span lang="es">Datos públicos en vivo desde la API de GitHub.</span>
-            <span lang="en">Live public data from the GitHub API.</span>
-          </p>
+          <h2 class="section-title" data-i18n="numbers.title">GitHub en números</h2>
+          <p class="section-sub" data-i18n="numbers.sub">Datos públicos en vivo desde la API de GitHub.</p>
         </div>
-        <div id="overview-grid" class="overview-grid"></div>
+        <div class="stat-grid" id="stat-grid"></div>
       </section>
 
-      <!-- ========================================================= About -->
-      <section id="about" class="overview card">
+      <!-- ========================================================== About -->
+      <section id="about" class="section reveal">
         <div class="section-head">
-          <h2><span lang="es">Sobre mí</span><span lang="en">About me</span></h2>
-          <p>
-            <span lang="es">Estudiante apasionado por el desarrollo de software. Me gusta tomar el
-              trabajo repetitivo y convertirlo en herramientas reutilizables, limpias y bien probadas.</span>
-            <span lang="en">A student passionate about software development. I like taking repetitive
-              work and turning it into reusable, clean and well-tested tools.</span>
-          </p>
+          <h2 class="section-title" data-i18n="about.title">Sobre mí</h2>
+          <p class="section-sub" data-i18n="about.sub">Tomo el trabajo repetitivo y lo convierto en herramientas reutilizables, limpias y bien probadas.</p>
         </div>
-        <div class="feature-grid">
-          <article class="feature">
-            <div class="f-icon">🎓</div>
-            <h3><span lang="es">Estudiante de programación</span><span lang="en">Programming student</span></h3>
-            <p>
-              <span lang="es">Actualmente estudiante en la <strong>Universidad Nacional de Costa Rica</strong> 🇨🇷, aplicando lo aprendido a diario en proyectos reales y de código abierto.</span>
-              <span lang="en">Currently a student at the <strong>National University of Costa Rica</strong> 🇨🇷, applying what I learn every day in real-world and open-source projects.</span>
-            </p>
-          </article>
-          <article class="feature">
-            <div class="f-icon">☕</div>
-            <h3>Java &amp; JavaFX</h3>
-            <p>
-              <span lang="es">Mi terreno principal: aplicaciones de escritorio, motores de navegación y utilidades de UI.</span>
-              <span lang="en">My main turf: desktop apps, navigation engines and UI utilities.</span>
-            </p>
-          </article>
-          <article class="feature">
-            <div class="f-icon">📦</div>
-            <h3><span lang="es">Publicado en Maven Central</span><span lang="en">Published on Maven Central</span></h3>
-            <p>
-              <span lang="es">Autor de <strong>CoreFx</strong>, una librería sin dependencias disponible para cualquier proyecto.</span>
-              <span lang="en">Author of <strong>CoreFx</strong>, a dependency-free library available to any project.</span>
-            </p>
-          </article>
-          <article class="feature">
-            <div class="f-icon">🧪</div>
-            <h3><span lang="es">Código limpio y testeado</span><span lang="en">Clean, tested code</span></h3>
-            <p>
-              <span lang="es">Clases <code>final</code>, null-safe por contrato y cubiertas con pruebas unitarias.</span>
-              <span lang="en"><code>final</code> classes, null-safe by contract and covered by unit tests.</span>
-            </p>
-          </article>
-          <article class="feature">
-            <div class="f-icon">⚙️</div>
-            <h3><span lang="es">C / C++ y Python</span><span lang="en">C / C++ and Python</span></h3>
-            <p>
-              <span lang="es">Exploro la programación de sistemas con C/C++ y el scripting y la automatización con Python.</span>
-              <span lang="en">I explore systems programming with C/C++ and scripting and automation with Python.</span>
-            </p>
-          </article>
-          <article class="feature">
-            <div class="f-icon">🌱</div>
-            <h3><span lang="es">Aprendizaje continuo</span><span lang="en">Always learning</span></h3>
-            <p>
-              <span lang="es">Afinando diseño de software, testing y buenas prácticas de open source.</span>
-              <span lang="en">Sharpening software design, testing and open-source best practices.</span>
-            </p>
-          </article>
-        </div>
+        <div class="about-grid" id="about-grid"></div>
       </section>
 
-      <!-- ========================================================== Tech -->
-      <section id="tech" class="overview card">
+      <!-- =========================================================== Tech -->
+      <section id="tech" class="section reveal">
         <div class="section-head">
-          <h2><span lang="es">Tecnologías</span><span lang="en">Technologies</span></h2>
-          <p>
-            <span lang="es">Las herramientas con las que trabajo y aprendo cada día.</span>
-            <span lang="en">The tools I work and learn with every day.</span>
-          </p>
+          <h2 class="section-title" data-i18n="tech.title">Tecnologías</h2>
+          <p class="section-sub" data-i18n="tech.sub">Las herramientas con las que trabajo y aprendo cada día.</p>
         </div>
-        <div class="tech-groups">
-          <div class="tech-group">
-            <h4><span lang="es">Lenguajes</span><span lang="en">Languages</span></h4>
-            <div class="chip-row">
-              <span class="chip" style="--c: #5d8bf4">C</span>
-              <span class="chip" style="--c: #6aa9e9">C++</span>
-              <span class="chip" style="--c: #f89820">Java</span>
-              <span class="chip" style="--c: #4b8bbe">Python</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <h4>Web</h4>
-            <div class="chip-row">
-              <span class="chip" style="--c: #e34f26">HTML5</span>
-              <span class="chip" style="--c: #2392c0">CSS3</span>
-              <span class="chip" style="--c: #e7c000">JavaScript</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <h4><span lang="es">Frameworks &amp; librerías</span><span lang="en">Frameworks &amp; libraries</span></h4>
-            <div class="chip-row">
-              <span class="chip" style="--c: #1f9bcf">JavaFX</span>
-              <span class="chip" style="--c: #8cc445">SFML</span>
-              <span class="chip" style="--c: #4cc26a">JUnit 5</span>
-            </div>
-          </div>
-          <div class="tech-group">
-            <h4><span lang="es">Herramientas</span><span lang="en">Tools</span></h4>
-            <div class="chip-row">
-              <span class="chip" style="--c: #d14b5a">Maven</span>
-              <span class="chip" style="--c: #f05032">Git</span>
-              <span class="chip" style="--c: #a8b3cc">GitHub</span>
-              <span class="chip" style="--c: #3a9bdc">VS Code</span>
-              <span class="chip" style="--c: #4f8fd6">NetBeans</span>
-              <span class="chip" style="--c: #b384e0">Visual Studio</span>
-            </div>
-          </div>
-        </div>
+        <div class="tech-wall" id="tech-wall"></div>
       </section>
 
-      <!-- ====================================================== Project -->
-      <section id="project" class="overview card project">
+      <!-- ======================================================== Project -->
+      <section id="project" class="section reveal">
         <div class="section-head">
-          <h2><span lang="es">Proyecto destacado</span><span lang="en">Featured project</span></h2>
-          <p>
-            <span lang="es">El proyecto en el que estoy invirtiendo más cariño ahora mismo.</span>
-            <span lang="en">The project I'm pouring the most care into right now.</span>
-          </p>
+          <h2 class="section-title" data-i18n="project.title">Proyecto destacado</h2>
+          <p class="section-sub" data-i18n="project.sub">La pieza central en la que estoy invirtiendo más cariño ahora mismo.</p>
         </div>
-        <div class="project-showcase">
-          <div class="project-main">
-            <div class="project-title">
-              <span class="project-emoji">☕</span>
-              <div>
-                <h3>CoreFx</h3>
-                <p class="project-sub">The foundation layer for JavaFX applications</p>
-              </div>
+
+        <div class="aurora-frame reveal">
+          <div class="aurora-frame-inner corefx">
+            <div class="corefx-deco" aria-hidden="true">
+              <span class="orb orb-a"></span>
+              <span class="orb orb-b"></span>
+              <span class="orb orb-c"></span>
             </div>
-            <p class="project-desc">
-              <span lang="es">Toda aplicación JavaFX reimplementa la misma fontanería: un singleton
-                para cambiar de pantalla, un lugar donde guardar el usuario, ayudantes para armar tablas,
-                theming y un kit de validación.
-                <strong>CoreFx es esa fontanería, hecha una vez y bien hecha.</strong></span>
-              <span lang="en">Every JavaFX app re-implements the same plumbing: a singleton to switch
-                screens, a place to stash the user, helpers to wire up tables, theming and a validation toolkit.
-                <strong>CoreFx is that plumbing, done once and done well.</strong></span>
-            </p>
-            <ul class="project-modules">
-              <li><span>🗺️</span><div>
-                <span lang="es"><strong>Navegación</strong> — un <code>FlowController</code> para cargar vistas FXML, cambiar escenas y abrir modales.</span>
-                <span lang="en"><strong>Navigation</strong> — one <code>FlowController</code> to load FXML views, swap scenes and open modals.</span>
-              </div></li>
-              <li><span>🧠</span><div>
-                <span lang="es"><strong>Estado compartido</strong> — un <code>AppContext</code> thread-safe, desacoplado de tus pantallas.</span>
-                <span lang="en"><strong>Shared state</strong> — a thread-safe <code>AppContext</code>, decoupled from your screens.</span>
-              </div></li>
-              <li><span>🎨</span><div>
-                <span lang="es"><strong>Theming en vivo</strong> — un <code>ThemeManager</code> que aplica y reaplica temas CSS al vuelo.</span>
-                <span lang="en"><strong>Live theming</strong> — a <code>ThemeManager</code> that applies and re-applies CSS themes on the fly.</span>
-              </div></li>
-              <li><span>🌍</span><div>
-                <span lang="es"><strong>i18n</strong> — inyecta un <code>ResourceBundle</code> y cambia de idioma en runtime.</span>
-                <span lang="en"><strong>i18n</strong> — inject a <code>ResourceBundle</code> and switch locale at runtime.</span>
-              </div></li>
-              <li><span>🧰</span><div>
-                <span lang="es"><strong>Utilidades</strong> — <code>Validator</code> null-safe, <code>TableUtils</code> tipado y más.</span>
-                <span lang="en"><strong>Utilities</strong> — null-safe <code>Validator</code>, typed <code>TableUtils</code> and more.</span>
-              </div></li>
-              <li><span>💾</span><div>
-                <span lang="es"><strong>Persistencia</strong> — un <code>EntityManagerHelper</code> agnóstico al proveedor.</span>
-                <span lang="en"><strong>Persistence</strong> — a provider-agnostic <code>EntityManagerHelper</code>.</span>
-              </div></li>
-            </ul>
-            <div class="hero-cta">
-              <a class="btn" href="https://github.com/Dinamo541/CoreFx" target="_blank" rel="noopener noreferrer">
-                <span lang="es">Ver en GitHub</span><span lang="en">View on GitHub</span>
-              </a>
-              <a class="btn btn-ghost" href="https://dinamo541.github.io/CoreFx/" target="_blank" rel="noopener noreferrer">
-                <span lang="es">Documentación ↗</span><span lang="en">Documentation ↗</span>
-              </a>
-              <a class="btn btn-ghost" href="https://central.sonatype.com/artifact/io.github.dinamo541/corefx" target="_blank" rel="noopener noreferrer">
-                Maven Central
-              </a>
+
+            <header class="corefx-head">
+              <div class="corefx-brand">
+                <span class="corefx-logo"><span data-logo="java"></span></span>
+                <div class="corefx-title">
+                  <span class="project-badge" data-i18n="project.kicker">Librería · Java + JavaFX</span>
+                  <h3 class="project-name">CoreFx</h3>
+                  <p class="project-lead" data-i18n="project.lead">La capa de fundación para aplicaciones JavaFX.</p>
+                </div>
+              </div>
+              <span class="project-version">v1.2.1</span>
+            </header>
+
+            <div class="project-stats" id="project-stats"></div>
+
+            <div class="corefx-body">
+              <div class="corefx-main">
+                <p class="project-desc" data-i18n-html="project.desc">
+                  Toda aplicación JavaFX reimplementa la misma fontanería: navegar entre pantallas, guardar el usuario,
+                  armar tablas, theming y validación. <strong>CoreFx es esa fontanería, hecha una vez y bien hecha.</strong>
+                </p>
+
+                <div class="module-grid">
+                  <article class="module-card" style="--d:0">
+                    <span class="module-ico"><span class="i" data-ico="compass"></span></span>
+                    <div class="module-txt"><h4 data-i18n="project.m1t">Navegación</h4><p data-i18n-html="project.m1d">Un <code>FlowController</code> para cargar vistas FXML, cambiar escenas y abrir modales.</p></div>
+                  </article>
+                  <article class="module-card" style="--d:1">
+                    <span class="module-ico"><span class="i" data-ico="layers"></span></span>
+                    <div class="module-txt"><h4 data-i18n="project.m2t">Estado compartido</h4><p data-i18n-html="project.m2d">Un <code>AppContext</code> thread-safe, desacoplado de tus pantallas.</p></div>
+                  </article>
+                  <article class="module-card" style="--d:2">
+                    <span class="module-ico"><span class="i" data-ico="palette"></span></span>
+                    <div class="module-txt"><h4 data-i18n="project.m3t">Theming en vivo</h4><p data-i18n-html="project.m3d">Un <code>ThemeManager</code> que aplica temas CSS al vuelo.</p></div>
+                  </article>
+                  <article class="module-card" style="--d:3">
+                    <span class="module-ico"><span class="i" data-ico="languages"></span></span>
+                    <div class="module-txt"><h4 data-i18n="project.m4t">i18n</h4><p data-i18n-html="project.m4d">Inyecta un <code>ResourceBundle</code> y cambia de idioma en runtime.</p></div>
+                  </article>
+                  <article class="module-card" style="--d:4">
+                    <span class="module-ico"><span class="i" data-ico="wrench"></span></span>
+                    <div class="module-txt"><h4 data-i18n="project.m5t">Utilidades</h4><p data-i18n-html="project.m5d"><code>Validator</code> null-safe, <code>TableUtils</code> tipado y más.</p></div>
+                  </article>
+                  <article class="module-card" style="--d:5">
+                    <span class="module-ico"><span class="i" data-ico="database"></span></span>
+                    <div class="module-txt"><h4 data-i18n="project.m6t">Persistencia</h4><p data-i18n-html="project.m6d">Un <code>EntityManagerHelper</code> agnóstico al proveedor.</p></div>
+                  </article>
+                </div>
+
+                <div class="project-actions">
+                  <a class="btn btn-primary" data-icon-reveal href="https://github.com/Dinamo541/CoreFx" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-ico" data-logo="github"></span><span class="btn-label" data-i18n="project.viewGithub">Ver en GitHub</span>
+                  </a>
+                  <a class="btn btn-ghost" data-icon-reveal href="https://dinamo541.github.io/CoreFx/" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-ico" data-ico="book-open"></span><span class="btn-label" data-i18n="project.docs">Documentación</span>
+                  </a>
+                  <a class="btn btn-ghost" data-icon-reveal href="https://central.sonatype.com/artifact/io.github.dinamo541/corefx" target="_blank" rel="noopener noreferrer">
+                    <span class="btn-ico" data-logo="maven"></span><span class="btn-label">Maven Central</span>
+                  </a>
+                </div>
+              </div>
+
+              <aside class="project-side">
+                <p class="code-label" data-i18n="project.addDep">Añade la dependencia</p>
+                <div class="dep" id="dep">
+                  <div class="dep-tabs" id="dep-tabs">
+                    <span class="dep-tab-thumb" aria-hidden="true"></span>
+                    <button type="button" class="active" data-tab="0">Maven</button>
+                    <button type="button" data-tab="1">Gradle</button>
+                    <button type="button" data-tab="2">Groovy</button>
+                  </div>
+                  <div class="dep-window">
+                    <button class="copy-btn" id="copy-btn" type="button">
+                      <span class="i" data-ico="copy"></span>
+                      <span class="i copy-check" data-ico="check"></span>
+                      <span class="copy-label" data-i18n="project.copy">Copiar</span>
+                    </button>
+                    <div class="dep-track" id="dep-track"></div>
+                  </div>
+                </div>
+              </aside>
             </div>
           </div>
-          <aside class="project-side">
-            <div class="repo-tags">
-              <span class="repo-lang">Java 25</span>
-              <span class="repo-lang">JavaFX 25</span>
-              <span class="repo-lang"><span lang="es">47 pruebas JUnit</span><span lang="en">47 JUnit tests</span></span>
-              <span class="repo-lang">MIT</span>
-            </div>
-            <p class="code-label"><span lang="es">Añade la dependencia</span><span lang="en">Add the dependency</span></p>
-            <div class="tabs">
-              <div class="tab-btns">
-                <button type="button" class="active">Maven</button>
-                <button type="button">Gradle (Kotlin)</button>
-                <button type="button">Gradle (Groovy)</button>
-              </div>
-              <div class="tab-panel active">
-<pre class="code-block"><code>&lt;dependency&gt;
-  &lt;groupId&gt;io.github.dinamo541&lt;/groupId&gt;
-  &lt;artifactId&gt;corefx&lt;/artifactId&gt;
-  &lt;version&gt;1.2.0&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
-              </div>
-              <div class="tab-panel">
-<pre class="code-block"><code>dependencies {
-    implementation("io.github.dinamo541:corefx:1.2.0")
-}</code></pre>
-              </div>
-              <div class="tab-panel">
-<pre class="code-block"><code>dependencies {
-    implementation 'io.github.dinamo541:corefx:1.2.0'
-}</code></pre>
-              </div>
-            </div>
-          </aside>
         </div>
       </section>
 
-      <!-- ======================================================== Repos -->
-      <section id="repos" class="repos card">
-        <div class="section-head section-head-row">
+      <!-- ========================================================== Repos -->
+      <section id="repos" class="section reveal">
+        <div class="section-head section-head--row">
           <div>
-            <h2><span lang="es">Repositorios destacados</span><span lang="en">Featured repositories</span></h2>
-            <p>
-              <span lang="es">Una selección de mis proyectos. Busca, filtra por lenguaje y ordénalos.</span>
-              <span lang="en">A selection of my projects. Search, filter by language and sort them.</span>
-            </p>
+            <h2 class="section-title" data-i18n="repos.title">Repositorios</h2>
+            <p class="section-sub" data-i18n="repos.sub">Una selección de proyectos. Busca, filtra por lenguaje y ordénalos.</p>
           </div>
           <div class="repo-controls">
-            <input id="repo-search" type="search" placeholder="Buscar repositorio…" aria-label="Buscar repositorio" />
-            <select id="repo-language" aria-label="Filtrar por lenguaje">
-              <option value="all">Todos los lenguajes</option>
-            </select>
-            <select id="repo-sort" aria-label="Ordenar repositorios">
-              <option value="score">Más relevantes</option>
-              <option value="updated">Recientes</option>
-              <option value="stars">Más estrellas</option>
-              <option value="forks">Más forks</option>
-              <option value="name">Nombre (A-Z)</option>
-            </select>
+            <div class="field field--search">
+              <span class="i" data-ico="search"></span>
+              <input id="repo-search" type="search" data-i18n-attr="placeholder:repos.search" placeholder="Buscar repositorio…" aria-label="Buscar repositorio" />
+            </div>
+            <div class="field">
+              <span class="i" data-ico="code"></span>
+              <select id="repo-language" aria-label="Filtrar por lenguaje"></select>
+            </div>
+            <div class="field">
+              <span class="i" data-ico="sort"></span>
+              <select id="repo-sort" aria-label="Ordenar repositorios"></select>
+            </div>
           </div>
         </div>
-        <div id="repos-grid" class="repos-grid"></div>
+        <div id="repos-list" class="repos-list"></div>
       </section>
 
-      <!-- ===================================================== Activity -->
-      <section id="activity" class="activity card">
+      <!-- ======================================================= Activity -->
+      <section id="activity" class="section reveal">
         <div class="section-head">
-          <h2><span lang="es">Actividad reciente</span><span lang="en">Recent activity</span></h2>
-          <p>
-            <span lang="es">Últimos eventos públicos visibles en GitHub.</span>
-            <span lang="en">Latest public events visible on GitHub.</span>
-          </p>
+          <h2 class="section-title" data-i18n="activity.title">Actividad reciente</h2>
+          <p class="section-sub" data-i18n="activity.sub">Últimos eventos públicos visibles en GitHub.</p>
         </div>
-        <ul id="activity-list" class="activity-list"></ul>
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span class="term-dot"></span><span class="term-dot"></span><span class="term-dot"></span>
+            <span class="terminal-title">dinamo541@github ~ %</span>
+          </div>
+          <div class="terminal-body" id="terminal-body"></div>
+        </div>
       </section>
 
-      <!-- ====================================================== Contact -->
-      <section id="contact" class="overview card">
+      <!-- ======================================================== Contact -->
+      <section id="contact" class="section reveal">
         <div class="section-head">
-          <h2><span lang="es">Contacto</span><span lang="en">Contact</span></h2>
-          <p>
-            <span lang="es">¿Trabajamos juntos o quieres saludar? Estos son mis canales.</span>
-            <span lang="en">Want to work together or just say hi? These are my channels.</span>
-          </p>
+          <h2 class="section-title" data-i18n="contact.title">Contacto</h2>
+          <p class="section-sub" data-i18n="contact.sub">¿Trabajamos juntos o quieres saludar? Estos son mis canales.</p>
         </div>
-        <div class="contact-grid">
-          <a class="contact-card" href="mailto:dominiquecastro81@gmail.com">
-            <span class="contact-emoji">✉️</span>
-            <div><strong>Email</strong><p>dominiquecastro81@gmail.com</p></div>
+        <div class="contact-row">
+          <a class="contact-tile" data-spotlight href="mailto:dominiquecastro81@gmail.com">
+            <span class="contact-ico i" data-ico="mail"></span>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">dominiquecastro81@gmail.com</span>
+            <span class="contact-go i" data-ico="arrow-up-right"></span>
           </a>
-          <a class="contact-card" href="https://github.com/Dinamo541" target="_blank" rel="noopener noreferrer">
-            <span class="contact-emoji">🐙</span>
-            <div><strong>GitHub</strong><p>@Dinamo541</p></div>
+          <a class="contact-tile" data-spotlight href="https://github.com/Dinamo541" target="_blank" rel="noopener noreferrer">
+            <span class="contact-ico" data-logo="github"></span>
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">@Dinamo541</span>
+            <span class="contact-go i" data-ico="arrow-up-right"></span>
           </a>
-          <a class="contact-card" href="https://dinamo541.github.io/Dinamo541/" target="_blank" rel="noopener noreferrer">
-            <span class="contact-emoji">🌐</span>
-            <div><strong><span lang="es">Portafolio</span><span lang="en">Portfolio</span></strong><p>dinamo541.github.io</p></div>
-          </a>
-          <a class="contact-card" href="https://central.sonatype.com/namespace/io.github.dinamo541" target="_blank" rel="noopener noreferrer">
-            <span class="contact-emoji">📦</span>
-            <div><strong>Maven Central</strong><p>io.github.dinamo541</p></div>
+          <a class="contact-tile" data-spotlight href="https://central.sonatype.com/namespace/io.github.dinamo541" target="_blank" rel="noopener noreferrer">
+            <span class="contact-ico" data-logo="maven"></span>
+            <span class="contact-label">Maven Central</span>
+            <span class="contact-value">io.github.dinamo541</span>
+            <span class="contact-go i" data-ico="arrow-up-right"></span>
           </a>
         </div>
       </section>
     </main>
 
-    <!-- ========================================================== Footer -->
-    <footer class="site-footer">
-      <p class="footer-quote" lang="en">"Every solution begins with understanding the problem."</p>
-      <p class="footer-quote" lang="es">"Toda solución comienza por comprender el problema."</p>
-      <div class="footer-links">
-        <a href="https://github.com/Dinamo541" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://github.com/Dinamo541/CoreFx" target="_blank" rel="noopener noreferrer">CoreFx</a>
-        <a href="https://central.sonatype.com/namespace/io.github.dinamo541" target="_blank" rel="noopener noreferrer">Maven Central</a>
-        <a href="mailto:dominiquecastro81@gmail.com">Email</a>
-      </div>
-      <p class="footer-copy">
-        © <span id="year"></span> Dominique Mariano (Dinamo541) ·
-        <span lang="es">Hecho con HTML, CSS y la API de GitHub.</span>
-        <span lang="en">Built with HTML, CSS and the GitHub API.</span>
-      </p>
+    <footer class="footer">
+      <p class="footer-quote" data-i18n="footer.quote">«Toda solución comienza por comprender el problema.»</p>
+      <p class="footer-copy">© <span id="year"></span> Dominique Castro · <span data-i18n="footer.built">Hecho con HTML, CSS y la API de GitHub.</span></p>
     </footer>
 
-    <template id="repo-card-template">
-      <article class="repo-card">
-        <header>
-          <h3 class="repo-name"></h3>
-          <span class="repo-visibility"></span>
-        </header>
-        <p class="repo-desc"></p>
-        <div class="repo-tags">
-          <span class="repo-lang"></span>
-          <span class="repo-size"></span>
-          <span class="repo-license"></span>
-        </div>
-        <footer>
-          <div class="repo-meta">
-            <span class="repo-stars"></span>
-            <span class="repo-forks"></span>
-            <span class="repo-updated"></span>
-          </div>
-          <a class="repo-link" target="_blank" rel="noopener noreferrer"></a>
-        </footer>
-      </article>
-    </template>
-
+    <script src="logos.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
