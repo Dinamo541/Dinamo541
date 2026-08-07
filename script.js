@@ -308,9 +308,9 @@ function renderProjectStats(animate) {
 
 /* ===================================================== Dependencias ====== */
 const DEPS = [
-  `<dependency>\n  <groupId>io.github.dinamo541</groupId>\n  <artifactId>corefx</artifactId>\n  <version>1.2.1</version>\n</dependency>`,
-  `dependencies {\n    implementation("io.github.dinamo541:corefx:1.2.1")\n}`,
-  `dependencies {\n    implementation 'io.github.dinamo541:corefx:1.2.1'\n}`,
+  `<dependency>\n  <groupId>io.github.dinamo541</groupId>\n  <artifactId>corefx</artifactId>\n  <version>1.4.0</version>\n</dependency>`,
+  `dependencies {\n    implementation("io.github.dinamo541:corefx:1.4.0")\n}`,
+  `dependencies {\n    implementation 'io.github.dinamo541:corefx:1.4.0'\n}`,
 ];
 let depActive = 0;
 function renderDeps() {
